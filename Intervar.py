@@ -2076,11 +2076,11 @@ def main():
     
     inputft= paras['inputfile_type']
     some_file_fail=0
-    out_annf=0; 
+    out_annf=0
     for annovar_outfile  in glob.iglob(paras['outfile']+"*."+paras['buildver']+"_multianno.txt"):
         sum1=check_genes(annovar_outfile)
         sum2=my_inter_var(annovar_outfile)
-        out_annf=out_annf+1; 
+        out_annf=out_annf+1
 
         outfile=annovar_outfile+".intervar"
         if os.path.isfile(outfile):
@@ -2092,19 +2092,19 @@ def main():
             some_file_fail=some_file_fail+1 
             print ("Warning: The InterVar seems not run correctly, please check your inputs and options in configure file")
 
-    if inputft.lower() == 'vcf_m' :
-        print ("Notice: The InterVar for VCF with multiple samples is finished, the output file is as [ %s.<samplename>.intervar ]" % annovar_outfile)
-        sum_sample=1;
-        for f in glob.iglob(paras['outfile']+"*."+paras['buildver']+"_multianno.txt.intervar"):
-            print ("Notice: The InterVar for VCF with multiple samples is finished, The %d sample output file is [ %s]" %(sum_sample,f))
-            sum_sample=sum_sample+1;
-        if some_file_fail>=1:    
-            print ("Warning: The InterVar seems not run correctly for your %d samples in the VCF, please check your inputs and options in configure file" %  some_file_fail )
-    if out_annf==0:
-         print ("Warning: The InterVar seems not run correctly, please check your inputs , options and configure file!")
-         print ("ERROR: The InterVar did not find the annotation result file from ANNOVAR!")
-         print ("ERROR: The name of annotation result file should be like %s*.%s__multianno.txt" % (paras['outfile'],paras['buildver']))
-    print("%s" %end)
+        if inputft.lower() == 'vcf_m' :
+            print ("Notice: The InterVar for VCF with multiple samples is finished, the output file is as [ %s.<samplename>.intervar ]" % annovar_outfile)
+            sum_sample=1
+            for f in glob.iglob(paras['outfile']+"*."+paras['buildver']+"_multianno.txt.intervar"):
+                print ("Notice: The InterVar for VCF with multiple samples is finished, The %d sample output file is [ %s]" %(sum_sample,f))
+                sum_sample=sum_sample+1
+            if some_file_fail>=1:
+                print ("Warning: The InterVar seems not run correctly for your %d samples in the VCF, please check your inputs and options in configure file" %  some_file_fail )
+        if out_annf==0:
+             print ("Warning: The InterVar seems not run correctly, please check your inputs , options and configure file!")
+             print ("ERROR: The InterVar did not find the annotation result file from ANNOVAR!")
+             print ("ERROR: The name of annotation result file should be like %s*.%s__multianno.txt" % (paras['outfile'],paras['buildver']))
+        print("%s" %end)
 
 
     
