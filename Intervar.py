@@ -1777,7 +1777,7 @@ def assign(BP,line,Freqs_flgs,Funcanno_flgs,Allels_flgs):
     cls=line.split('\t')
     if len(cls)>1:#esp6500siv2_all 1000g2015aug_all gnomAD_genome_ALL    
         BP_out=classfy(PVS1,PS,PM,PP,BA1,BS,BP,Allels_flgs,cls)
-        line_t="PVS1=%s,PS=%s,PM=%s,PP=%s,BA1=%s,BS=%s,BP=%s" %(PVS1,PS,PM,PP,BA1,BS,BP)
+        line_t="PVS1=%s;PS=%s;PM=%s;PP=%s;BA1=%s;BS=%s;BP=%s" %(PVS1,PS,PM,PP,BA1,BS,BP)
 
         #print("%s " % BP_out)
         pass
